@@ -114,7 +114,7 @@
 /* 500,1000,2000,4000,8000 supported.                     */
 /*                                                        */
 /**********************************************************/
-
+
 /**********************************************************/
 /* Version Numbers!                                       */
 /*                                                        */
@@ -159,7 +159,6 @@
 /*             verifySpace to use WDT instead of appstart */
 /* 4.1 WestfW: put version number in binary.		  */
 /**********************************************************/
-
 #define OPTIBOOT_MAJVER 4
 #define OPTIBOOT_MINVER 5
 
@@ -207,7 +206,7 @@ asm("  .section .version\n"
 
 #if 0
 /* Switch in soft UART for hard baud rates */
-/*
+/* 
  * I don't understand what this was supposed to accomplish, where the
  * constant "280" came from, or why automatically (and perhaps unexpectedly)
  * switching to a soft uart is a good thing, so I'm undoing this in favor
