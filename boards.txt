@@ -95,19 +95,22 @@ mighty8.build.variant=standard
 
 ##############################################################
 
-mighty8.name=9.216Mhz m1284p using Optiboot
-mighty8.upload.protocol=stk500v1
-mighty8.upload.maximum_size=129024
-mighty8.upload.speed=28800
-mighty8.bootloader.low_fuses=0xff
-mighty8.bootloader.high_fuses=0xde
-mighty8.bootloader.extended_fuses=0xfd
-mighty8.bootloader.path=optiboot
-mighty8.bootloader.file=optiboot_atmega1284p_9216.hex
-mighty8.bootloader.unlock_bits=0x3F
-mighty8.bootloader.lock_bits=0x0F
-mighty8.build.mcu=atmega1284p
-mighty8.build.f_cpu=9216000L
-#mighty8.build.core=arduino:arduino
-mighty8.build.core=standard
-mighty8.build.variant=standard
+o9216.name=1284p 9.216MHz W/ Optiboot
+o9216.upload.protocol=stk500v1
+o9216.upload.maximum_size=129024
+o9216.upload.speed=28800
+o9216.bootloader.low_fuses=0xff
+o9216.bootloader.high_fuses=0xde
+o9216.bootloader.extended_fuses=0xfd
+o9216.bootloader.path=optiboot
+o9216.bootloader.file=optiboot_atmega1284p_9216.hex
+o9216.bootloader.unlock_bits=0x3F
+o9216.bootloader.lock_bits=0x0F
+o9216.build.mcu=atmega1284p
+o9216.build.f_cpu=9216000L
+#o9216.build.core=arduino:arduino
+o9216.build.core=standard
+o9216.build.variant=standard
+
+##############################################################
+
