@@ -257,6 +257,9 @@ atmega1284_isp: LFUSE = FF
 atmega1284_isp: EFUSE = FD
 atmega1284_isp: isp
 
+
+
+
 atmega1284_slow: TARGET = atmega1284p_slow
 atmega1284_slow: MCU_TARGET = atmega1284p
 atmega1284_slow: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=19200' '-DBIGBOOT'
@@ -363,7 +366,7 @@ atmega88_isp: isp
 #9.216Mhz platforms - currently only atmega1284p supported
 #
 #
-atmega1284_9216: TARGET = atmega1284_9216
+atmega1284_9216: TARGET = atmega1284p_9216
 atmega1284_9216: MCU_TARGET = atmega1284p
 atmega1284_9216: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200' '-DBIGBOOT'
 atmega1284_9216: AVR_FREQ = 9216000L
