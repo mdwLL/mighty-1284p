@@ -108,7 +108,9 @@ STK500-1 = $(STK500) -e -d$(MCU_TARGET) -pf -vf -if$(PROGRAM)_$(TARGET).hex \
 STK500-2 = $(STK500) -d$(MCU_TARGET) -ms -q -lCF -LCF -cUSB -I200kHz -s -wt
 
 OBJ        = $(PROGRAM).o
-OPTIMIZE = -Os -fno-inline-small-functions -fno-split-wide-types -mshort-calls
+
+# updated via suggestions from https://code.google.com/p/optiboot/issues/detail?id=101
+OPTIMIZE = -Os -fno-inline-small-functions -ffunction-sections -fno-move-loop-invariants -mrelax
 
 DEFS       = 
 LIBS       =
@@ -354,6 +356,33 @@ atemga88_isp: LFUSE = FF
 # 512 byte boot
 atmega88_isp: EFUSE = 04
 atmega88_isp: isp
+
+
+
+#
+#9.216Mhz platforms - currently only atmega1284p supported
+#
+#
+atmega1284_9216: TARGET = atmega1284_9216
+atmega1284_9216: MCU_TARGET = atmega1284p
+atmega1284_9216: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200' '-DBIGBOOT'
+atmega1284_9216: AVR_FREQ = 9216000L
+atmega1284_9216: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_9216: $(PROGRAM)_atmega1284p_9216.hex
+atmega1284_9216: $(PROGRAM)_atmega1284p_9216.lst
+
+atmega1284_9216_isp: atmega1284_9216
+atmega1284_9216_isp: TARGET = atmega1284p_9216
+atmega1284_9216_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_9216_isp: HFUSE = DE
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega1284_9216_isp: LFUSE = FF
+# 2.7V brownout
+atmega1284_9216_isp: EFUSE = FD
+atmega1284_9216_isp: isp
+
+
 
 
 # 8MHz clocked platforms
